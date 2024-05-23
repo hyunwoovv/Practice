@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body div {}
+
+        .top {
+            background-image: url("//images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/9b22e6f1444b5ae785f3a267/pexelsphoto3326103.jpeg");
+            width: 100%;
+            height: 400px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            /*화면 줄였을 때 원본 비율 유지*/
+            background-position: center;
+            /* 이미지 크기 맞지 않을때*/
+            position: relative;
+        }
+
+        .search {
+            border: 1px solid gray;
+            opacity: 0.5;
+            padding: 10px;
+        }
+
+        #text {
+            width: 100px;
+        }
+
+        .text {
+            font-size: 24px;
+            font-weight: bold;
+            width: 300px;
+            padding: 5px 0;
+            position: relative;
+            top: 225px;
+            background-color: white;
+        }
+
+        .text2 {
+            background-color: rgb(241, 203, 15);
+            font-size: 24px;
+            font-weight: bold;
+            width: 200px;
+            padding: 5px 0;
+            position: relative;
+            top: 220px;
+        }
+
+
+
+        .menu {
+            text-align: center;
+            padding: 30px 30px;
+            width: 20%;
+            font-weight: bold;
+            background-color: white;
+            display: inline-block;
+            position: absolute;
+            left: 7%;
+            bottom: 25%;
+            border: 1px solid black;
+        }
+
+        span {
+            font-size: 10px;
+        }
+
+        .pizza {
+            display: inline-block;
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left: 40%;
+            top: 13%
+        }
+
+        div.pizza img {
+            width: 100%;
+            height: 100%
+        }
+
+        .top2 {
+            margin: 20px 0;
+            height: 400px;
+            position: relative;
+        }
+
+        .aa {
+            width: 60%;
+
+        }
+
+        .color {
+            background-color: rgb(241, 203, 15);
+            z-index: -1;
+            width: 35%;
+            height: 100%;
+            /* margin-left:31%; */
+            border: 3px solid black;
+            position: absolute;
+            left: 30%
+        }
+
+        .top2>div {
+            display: inline-block;
+        }
+
+        .middle {
+            margin: 50px 0 0 0;
+            text-align: center;
+        }
+
+        .snack {
+            background-color: white;
+            width: 25%;
+            border: 2px solid black;
+            padding: 30px 0 0 0;
+        }
+
+        .snack .snacktitle {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .diet {
+            background-color: white;
+            width: 25%;
+            border: 2px solid black;
+            padding: 30px 0 0 0;
+        }
+
+        .diettitle {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        div.middle img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .fruit {
+            width: 20%;
+            height: 30%;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .middle2 {
+            background-image: url("https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/992eb4a786e9521ea39ea995/pexelsphoto940302.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 500px;
+            margin: 50px 0 0 0;
+            position: relative;
+        }
+
+        .midbox {
+            position: relative;
+            top: 150px;
+            padding: 10px 0 0 40px;
+            width: 80%
+        }
+
+        .midtitle {
+            font-size: 20px;
+            font-weight: 10px;
+        }
+
+        .midtext {
+            font-size: 15px;
+        }
+
+        .bottom {
+            margin: 100px 0 0 0;
+            height: 270px;
+        }
+
+        .pic {
+            position: relative;
+        }
+
+        .bottomback {
+            height: 150px;
+            background-color: rgb(241, 203, 15);
+            z-index: -1;
+            width: 100%;
+        }
+
+        .bottom>div {
+            display: inline-block;
+        }
+
+        .stake {
+            width: 300px;
+            height: 300px;
+            display: inline-block;
+            position: absolute;
+            top: -230px;
+            left: 50px;
+        }
+
+        .salad {
+            width: 300px;
+            height: 300px;
+            display: inline-block;
+            position: absolute;
+            top: -230px;
+            left: 400px;
+        }
+
+        div.stake img {
+            width: 100%;
+            height: 100%
+        }
+
+        div.salad img {
+            width: 100%;
+            height: 100%
+        }
+
+        .bottomtext {
+            text-align: center;
+            width: 600px;
+            height: 5px;
+        }
+
+        .bottomtitle {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .bottomwrite {
+            font-size: 13px;
+        }
+
+        .readmore {
+            background-color: black;
+            color: white;
+            font-size: 13px;
+            width: 120px;
+            margin-top: 100px;
+            padding: 10px 10px;
+            ;
+            text-align: center;
+        }
+
+        .flexcenter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        div.bottom2 img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .bottom2 {
+            margin: 50px 0 0 0;
+        }
+
+        .brunch {
+            width: 31%;
+            height: 300px;
+        }
+
+        .res {
+            width: 31%;
+            height: 300px;
+            border: 3px solid black;
+            text-align: center;
+            align-content: center;
+            box-sizing: border-box;
+        }
+
+        .restitle {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .restext {
+            font-size: 12px;
+            font-weight: 1;
+        }
+
+        .resname {
+            font-size: 15px;
+            font-weight: 1;
+        }
+
+        .flexbottom {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        span.small {
+            font-size: 10px;
+            font-weight: 1;
+        }
+
+        span.big {
+            font-size: 30px;
+            font-weight: 10;
+        }
+
+        .bottom3 {
+            margin: 50px 0 0 0;
+        }
+
+        .bottomback3 {
+            background-image: url(https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/3cb19967a4645debbcf2c90a/pexelsphoto3831823.jpeg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            height: 400px;
+        }
+        .welcome{margin-bottom:20px;
+    }
+        .flextale {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            height: 100%;
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <!--<img id="img1" src="https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/9b22e6f1444b5ae785f3a267/pexelsphoto3326103.jpeg">-->
+        <div class="top">
+            <div class="search"><input id="text" type="text" placeholder="search"><input type="button" value="검색"></div>
+            <div class="text">YOUR FAVORITE FOOD</div>
+            <div class="text2">MAKE IT GOOD</div>
+        </div>
+        <div class="top2">
+            <div class="color"></div>
+            <div class="aa">
+                <div class="menu">
+                    <div class="cafetitle">Cafe Food Menu</div>
+                    <div class="detail"><span>All of our food is prepared by our team of trained kitchen staff from the
+                            sealed glass kitchen where you can see your food being made, without risk of little paws
+                            getting
+                            involved.</span></div>
+                </div>
+                <div class="pizza"><img
+                        src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/e07fd7349a87546e950fb324/photo1564305564045c62d40dd0123.jpg">
+                </div>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="flex">
+                <div class="fruit"><img src="https://images01.nicepage.com/a2/fc/a2fc4ef890f44fa0a9bb7787ce17008d.jpeg">
+                </div>
+                <div class="snack">
+                    <div class="snacktitle">
+                        Have a healthy afternoon snack
+                    </div>
+                    <div class="snackwrite"><span>The majority of people in the working world are likely familiar with
+                            the mid-afternoon slump</span></div>
+                </div>
+                <div class="fruit"><img src="https://images01.nicepage.com/62/43/6243854162c536333ab218a58996077f.jpeg">
+                </div>
+                <div class="diet">
+                    <div class="diettitle">Include lots of fibre in your diet</div>
+                    <div class="dietwrite"><span>Fibre is known to help aid with digestion. However, that’s not its only
+                            benefit.</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="middle2">
+            <div class="midbox">
+                <div class="midtitle">Time to Make a Difference</div><br>
+                <div class="midtext">Phasellus scelerisque arcu vestibulum tempor tempor. Donec vulputate leo et metus
+                    hendrerit bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. In scelerisque
+                    nisl
+                    nec ornare euismod.</div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="bottomback"></div>
+            <div class="pic">
+                <div class="stake"><img
+                        src="https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/b997f5453a025796b7e011f6/pexelsphoto3659862.jpeg">
+                </div>
+                <div class="salad"><img
+                        src="https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/89f0b40da8d05b4088f24d63/pexelsphoto704569.jpeg">
+                </div>
+            </div>
+        </div>
+        <div class="flexcenter">
+            <div class="bottomtext">
+                <div class="bottomtitle">Which is the tastiest food?</div>
+                <div class="bottomwrite">The world's most delicious food is not Massaman curry, as we suggested, but a
+                    meaty, spicy, gingery dish from west Sumatra. "There is no love sincerer than the love of food,"
+                    George Bernard Shaw said. Judging by the number of amazing dishes out there, he was right.</div>
+            </div>
+            <div class="readmore">READ MORE</div>
+        </div>
+
+        <div class="bottom2">
+            <div class="flexbottom">
+                <div class="brunch"><img
+                        src="https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/e5a2d57a68bc5de4b52746a3/pexelsphoto3756523.jpeg">
+                </div>
+                <div class="res">
+                    <div class="restitle">Restaurant<br>
+                        <span class="small"> ORGANIC FARM</span><br><span class="big">"</span>
+                    </div>
+                    <div class="restext">We bring the season’s best mix of organic produce and hand-crafted farm
+                        products conveniently to your door by growing and partnering with local farms and artisans in
+                        your area.</div><br>
+                    <div class="resname">– LOO HUDSON</div>
+                </div>
+                <div class="brunch"><img
+                        src="https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/fcee991985085d4093370a3d/pexelsphoto3756525.jpeg">
+                </div>
+            </div>
+        </div>
+        <div class="bottom3">
+            <div class="bottomback3">
+                <div class="flextale">
+                    <div class="sns"></div>
+                    <div class="welcome">Enjoy Morning Time!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
