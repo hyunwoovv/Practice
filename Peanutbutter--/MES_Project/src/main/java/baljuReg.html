@@ -1,0 +1,375 @@
+<style>
+    * {
+        box-sizing: border-box;
+
+    }
+
+    .container {
+        background-color: #F0F0E8;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .top {
+        color: #676767;
+        font-size: 24px;
+        font-weight: bold;
+        height: 15vh;
+    }
+
+    .title {
+        padding-top: 30px;
+        margin-left: 100px;
+    }
+
+    .title img {
+        vertical-align: middle;
+        /* 이미지와 텍스트의 높낮이를 맞추기 위해 추가 */
+    }
+
+    .title span {
+        vertical-align: middle;
+        /* 이미지와 텍스트의 높낮이를 맞추기 위해 추가 */
+    }
+
+
+
+    .section {
+        margin: 0 100px;
+        height: 70vh;
+        background-color: white;
+        /* border: 1px solid red; */
+
+    }
+
+    .tableTopDiv {
+        width: 100%;
+        height: 30%;
+        padding-top: 3px;
+    }
+
+    .table {
+        border-collapse: collapse;
+        /* 테두리가 겹치지 않도록 설정 */
+        width: 100%;
+    }
+
+    th {
+        background-color: #b6b6b6;
+        border-right: 1px solid white;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    .tbody tr {
+        border-bottom: 1px solid lightgray;
+    }
+
+    tr th,
+    tr td {
+        padding: 5px 0px;
+    }
+
+    .thead th:nth-child(1) {
+        width: 5%;
+    }
+
+    .thead th:nth-child(2) {
+        width: 12%;
+    }
+
+    .thead th:nth-child(3) {
+        width: 18%;
+    }
+
+    .thead th:nth-child(4) {
+        width: 12%;
+    }
+
+    .thead th:nth-child(5) {
+        width: 15%;
+    }
+
+    .thead th:nth-child(6) {
+        width: 10%;
+    }
+
+    .thead th:nth-child(7) {
+        width: 10%;
+    }
+
+    .thead th:nth-child(8) {
+        width: 10%;
+    }
+
+    .Btn_css {
+        display: inline-block;
+        /* span에 padding을 적용했을 때 부모 div 밖으로 벗어나는것을 막기위해서 */
+        padding: 5px;
+        background-color: #3F3B3B;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .regBtn {
+        margin: 0 100px;
+        text-align: right;
+        margin-top: 30px;
+    }
+
+    .inputText {
+        height: 25px;
+        margin-left: 30px;
+        height: 100%;
+    }
+
+    .span {
+        display: inline-block;
+        width: 100px;
+        font-weight: bold;
+        vertical-align: top;
+        height: 100%;
+        text-align: center;
+        /* 가로로 가운데정렬 */
+        line-height: 30px;
+        /* 세로로 가운데정렬 */
+        margin-left: 100px;
+    }
+
+    .margin {
+        margin-left: 100px;
+    }
+
+    .temp {
+        height: 30px;
+        margin: 5px;
+    }
+
+    input[type="text"] {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <div class="title">
+                <img src="image/BOM.png" style="width: 30px;">
+                <span>발주</span>
+            </div>
+        </div>
+        <div class="section">
+            <div class="tableTopDiv">
+                <div class="temp">
+                    <span class="span">P/O NO(*)</span> <input type="text" class="inputText" id="PO_No">
+                    <span class="span margin">P/O 일자(*)</span> <input type="date" class="inputText" id="PO_date">
+                </div>
+                <div class="temp">
+                    <span class="span">거래처(*)</span> <input type="text" class="inputText" id="account">
+                    <span class="span margin">통화(*)</span> <input type="text" class="inputText" id="KRW">
+                </div>
+                <div class="temp">
+                    <span class="span">비고사항</span> <input style="width: 350px;" type="text" class="inputText"
+                        id="remark">
+                    <span class="Btn_css" style="margin-left: 50px;" onclick="addRow()">행 추가</span>
+                    <span class="Btn_css" style="margin-left: 20px;" onclick="deleteSelectedRow()">행 삭제</span>
+                </div>
+            </div>
+            <table class="table">
+                <thead class="thead">
+                    <tr>
+                        <th> </th>
+                        <th>부품명</th>
+                        <th>모델명</th>
+                        <th>부품코드</th>
+                        <th>납품예정일</th>
+                        <th>단가</th>
+                        <th>발주 수량</th>
+                        <th>합계</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+                    <tr>
+                        <td><input type="checkbox" class="delete-checkbox"></td>
+                        <td>
+                            <select class="select1" onchange="updateOption()">
+                                <option>-----</option>
+                                <option value="CPU">CPU</option>
+                                <option value="RAM">RAM</option>
+                                <option value="메인보드">메인보드</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="select2" onchange="updateCodePrice()">
+
+                            </select>
+                        </td>
+                        <td class="code"></td>
+                        <td>2024-10-28</td>
+                        <td class="price"></td>
+                        <td><input type="text" style="width: 90%;" class="count" oninput="updateTotal()"></td>
+                        <td class="total"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="regBtn">
+            <span class="Btn_css" style="padding:10px" onclick="commitReg()">완료</span>
+
+        </div>
+    </div>
+</body>
+
+<script>
+    function deleteSelectedRow() { //행삭제
+        let checkboxes = document.querySelectorAll('.delete-checkbox');
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                checkbox.closest('tr').remove(); //closest : 특정 요소의 가장 가까운 조상 요소를 찾는 데 사용되는 DOM 메서드
+            }
+        });
+    }
+
+    function commitReg() {
+
+        let PO_No = document.querySelector('#PO_No').value;
+        let PO_date = document.querySelector('#PO_date').value;
+        let KRW = document.querySelector('#KRW').value;
+        let account = document.querySelector('#account').value;
+
+        if (PO_No === '') {
+            alert('P/O No를 입력해주세요');
+            return;
+        } else if (PO_date === '') {
+            alert('P/O 일자를 입력해주세요');
+            return;
+        } else if (account === '') {
+            alert('거래처를 입력해주세요');
+            return;
+        } else if (KRW === '') {
+            alert('통화를 입력해주세요');
+            return;
+        }
+
+        let remark = document.querySelector('#remark').value; //비고사항
+        if (remark === '') {
+            remark = "없음";
+        }
+
+        window.location.href = "balju.html";
+    }
+
+    function addRow() { //행추가
+            let tbody = document.querySelector('.tbody');
+
+            let newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                            <td><input type="checkbox" class="delete-checkbox"></td>
+                            <td>
+                                <select class="select1">
+                                    <option>-----</option>
+                                    <option value="CPU">CPU</option>
+                                    <option value="RAM">RAM</option>
+                                    <option value="메인보드">메인보드</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="select2"></select>
+                            </td>
+                            <td class="code"></td>
+                            <td>2024-10-28</td>
+                            <td class="price"></td>
+                            <td><input type="text" style="width: 90%;" class="count"></td>
+                            <td class="total"></td>
+                `;
+
+            tbody.appendChild(newRow);
+        }
+
+        document.addEventListener('change', function(event) {
+            if (event.target.classList.contains('select1')) {
+                updateOption(event);
+            }
+            if (event.target.classList.contains('select2')) {
+                updateCodePrice(event);
+            }
+        });
+
+        document.addEventListener('input', function(event) {
+            if (event.target.classList.contains('count')) {
+                updateTotal(event);
+            }
+        });
+
+        function updateOption(event) {
+            let select1 = event.target;
+            let select2 = select1.closest('tr').querySelector('.select2');
+            let selectedComponent = select1.value;
+
+            let options = {
+                'CPU': ['Intel Core i9-9900K', 'Intel Core i9-Extreme'],
+                'RAM': ['DDR4-3200', 'DDR4-3500'],
+                '메인보드': ['ASUS ROG', 'MSI Pro']
+            };
+
+            select2.innerHTML = '';
+
+            options[selectedComponent]?.forEach(option => {
+                let newOption = document.createElement('option');
+                newOption.textContent = option;
+                newOption.value = option;
+                select2.appendChild(newOption);
+            });
+        }
+
+        function updateCodePrice(event) {
+            let select2 = event.target;
+            let selectedOption = select2.value;
+            let details = {
+                'Intel Core i9-9900K': { code: 'A01-01', price: '500,000' },
+                'Intel Core i9-Extreme': { code: 'A01-02', price: '1,000,000' },
+                'DDR4-3200': { code: 'A02-01', price: '200,000' },
+                'DDR4-3500': { code: 'A02-02', price: '250,000' },
+                'ASUS ROG': { code: 'A03-01', price: '300,000' },
+                'MSI Pro': { code: 'A03-02', price: '350,000' }
+            };
+
+            let codeCell = select2.closest('tr').querySelector('.code');
+            let priceCell = select2.closest('tr').querySelector('.price');
+
+            if (details[selectedOption]) {
+                codeCell.textContent = details[selectedOption].code;
+                priceCell.textContent = details[selectedOption].price;
+            } else {
+                codeCell.textContent = '';
+                priceCell.textContent = '';
+            }
+
+            updateTotal(event);
+        }
+
+        function updateTotal(event) {
+            let countInput = event.target.closest('tr').querySelector('.count');
+            let priceCell = event.target.closest('tr').querySelector('.price');
+            let totalCell = event.target.closest('tr').querySelector('.total');
+
+            let count = parseInt(countInput.value);
+            let price = parseInt(priceCell.textContent.replace(/,/g, ''));
+
+            if (!isNaN(count) && !isNaN(price)) {
+                totalCell.textContent = (count * price).toLocaleString();
+            } else {
+                totalCell.textContent = '';
+            }
+        }
+</script>

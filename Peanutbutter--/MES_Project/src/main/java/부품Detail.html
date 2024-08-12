@@ -1,0 +1,237 @@
+<style>
+    * {
+        box-sizing: border-box;
+
+    }
+
+    .container {
+        background-color: #F0F0E8;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .top {
+        color: #676767;
+        font-size: 24px;
+        font-weight: bold;
+        height: 12vh;
+    }
+
+    .title {
+        padding-top: 30px;
+        margin-left: 100px;
+    }
+
+    .title img {
+        vertical-align: middle;
+        /* 이미지와 텍스트의 높낮이를 맞추기 위해 추가 */
+    }
+
+    .title span {
+        vertical-align: middle;
+        /* 이미지와 텍스트의 높낮이를 맞추기 위해 추가 */
+    }
+
+    .search_container {
+        margin: 0 20px;
+        height: 81vh;
+        background-color: #E9E4DC;
+        overflow: auto;
+    }
+
+    .btn:active {
+        transform: scale(0.95);
+    }
+
+    .btn2:active {
+        transform: scale(0.95);
+    }
+
+    .btn {
+        background-color: #A2A2A2;
+        color: #FFFFFF;
+    }
+
+    .btn2 {
+        margin: 10px 10px 0 0;
+        padding: 10px;
+        background-color: #A2A2A2;
+        color: #FFFFFF;
+    }
+
+    .searchcon {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin: 20px 0 0 40px;
+    }
+
+    .search-box {
+        position: relative;
+        width: 300px;
+        margin-right: 20px;
+    }
+
+    .search-box input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        padding-right: 40px;
+        /* Make space for the button */
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .search-box button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 95px;
+        background-color: #D3CEC9;
+        color: black;
+        border: none;
+        cursor: pointer;
+    }
+
+    .search-box button:active {
+        transform: scale(0.95);
+    }
+
+    #reg {
+        margin-right: 50px;
+        padding: 10px;
+        background-color: #3F3B3B;
+        border-radius: 5px;
+        color: white;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <div class="title">
+                <img src="image/BOM.png" style="width: 30px;">
+                <span>Intel Core i9-9900K</span>
+            </div>
+        </div>
+        <div class="search_container">
+   
+            <div class="searchcon">
+                <div style="padding-right:15px;">부품명(*)</div>
+                <div class="search-box">
+                    <input type="text" value="CPU">
+                </div>
+                <div style="padding-right:15px;">부품코드(*)</div>
+                <div class="search-box">
+                    <input type="text" value="A01-01">
+                    <button>중복여부</button>
+                </div>
+            </div>
+            <div class="searchcon">
+                <div style="padding-right:48px;">단위</div>
+                <div class="search-box">
+                    <input id="unit" type="text" value="개">
+                </div>
+                <div style="padding-right:63px;">규격</div>
+                <div class="search-box">
+                    <input type="text" value="5cm * 5cm">
+                </div>
+            </div>
+            <div class="searchcon">
+                <!-- <div class="search-box">
+                    <input type="text">
+                </div> -->
+                <div style="padding-right:48px;">모델</div>
+                <div class="search-box">
+                    <input type="text" value="Intel Core i9-9900K">
+                </div>
+                <div style="padding-right:63px;">분류</div>
+                <div class="search-box">
+                    <input type="text">
+                </div>
+                
+            </div>
+            <div class="searchcon">
+                <!-- <div class="search-box">
+                    <input type="text">
+                </div> -->
+                <div style="padding-right: 18px;">거래처 1</div>
+                <div class="search-box">
+                    <input type="text" value = "순양물산">
+                </div>
+                <div style="padding-right:32px;">거래처 2</div>
+                <div class="search-box">
+                    <input type="text" value="삼성 디스플레이">
+                </div>
+                
+            </div>
+
+          
+
+            <div class="searchcon">
+                <div style="padding-right:17px;">입고창고</div>
+                <div class="search-box">
+                    <input type="text" value="창고B">
+                </div>
+            </div>
+              <div class="searchcon">
+           
+                <div style="padding-right:17px;">부품(이미지)</div>
+                <div class="search-box">
+                    <input type="file">
+                </div>
+            </div>
+            <div style="text-align: end;">
+                <span id="reg" onclick="commitReg()">등록</span>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+<script>
+    function test() {
+        console.log("버튼클릭시 필요함수");
+    }
+
+    let 제품select = document.querySelector('.제품select');
+    제품select.addEventListener('change', function () {
+        let selectValue = this.value;
+        let 제품코드 = document.querySelector('#제품코드');
+        let unit = document.querySelector('#unit');
+        if (selectValue === "LG그램 14인치") {
+            제품코드.value = "GRAM-001"
+            unit.value = "개"
+        } else if (selectValue === "LG그램 15인치") {
+            제품코드.value = "GRAM-002"
+            unit.value = "개"
+        } else if (selectValue === "삼성 노트북") {
+            제품코드.value = "SAMSUNG-001"
+            unit.value = "개"
+        }
+    })
+
+    function commitReg(){
+        let selectValue= document.querySelector('.제품select').value;
+
+        let productPlanNo = document.querySelector('.productPlanNo');
+
+        if(selectValue==="-----"){
+            alert("제품을 선택해 주세요");
+            return;
+        }else if(productPlanNo.value === ""){
+            alert('생산계획No 를 입력해 주세요');
+            return;
+        }
+
+        window.location.href="productPlan.html"
+    }
+  
+</script>

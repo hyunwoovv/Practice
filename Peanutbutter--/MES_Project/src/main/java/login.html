@@ -1,0 +1,140 @@
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        /* border: 1px solid red; */
+        /* 스크롤 조금 생기는거 없애려고 */
+        box-sizing: border-box;
+
+    }
+
+    body {
+        /* 스크롤 조금 생기는거 없애려고 */
+        margin: 0;
+        padding: 0;
+    }
+
+    .top {
+        display: flex;
+
+        background-color: #444444;
+        height: 50px;
+    }
+
+    .body {
+        height: calc(100% - 50px);
+        background-color: #C0B296;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login_container {
+        background-color: white;
+        width: 400px;
+        height: 300px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        border-radius: 8px;
+    }
+
+    .logo_div {
+        width: 100%;
+        height: 20%;
+        margin-top: 10px;
+    }
+
+    img {
+        max-width: 100%;
+        /* 최대 너비를 컨테이너의 너비로 제한 */
+        max-height: 100%;
+        padding-left: 50px;
+        margin-left: 40px;
+    }
+
+    .id_div, .pw_div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    input {
+        height: 40px;
+        font-size: 15px;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        transition: border-color 0.5s;
+        padding:5px;
+    }
+
+    input:focus {
+        border-color: black;
+        outline: none;
+    }
+
+    .loginBtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    span {
+        width: 200px;
+        height: 40px;
+        background-color: white;
+        border: 2px solid #f4753b;
+        color: #f4753b;
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 30px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s, color 0.3s;
+        /* 전환 효과 천천히되게 */
+        cursor: pointer;
+        /* 마우스를 올렸을 때 포인터 표시 */
+    }
+
+    span:hover {
+        /* 로그인 버튼에 마우스 올렸을 때 효과 */
+        background-color: #f4753b;
+        color: white;
+
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="top"></div>
+        <div class="body">
+            <div class="login_container">
+                <div class="logo_div"><img src="image/darkLogo.png"></div>
+                <div class="id_div"><input id="id" type="text" placeholder="아이디 또는 사번"></div>
+                <div class="pw_div"><input id="pw" type="password" placeholder="비밀번호"></div>
+                <div class="loginBtn"><span>로그인</span></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    let loginBtn = document.querySelector('.loginBtn')
+
+    loginBtn.addEventListener('click',function(e){
+        let id = document.querySelector('#id').value
+        let pw = document.querySelector('#pw').value
+        if(id==='admin' && pw==='admin'){
+            alert('관리자로 로그인')
+            window.location.href = 'admin.html';
+        }else{
+            alert('작업자로 로그인')
+        }
+    })
+
+</script>

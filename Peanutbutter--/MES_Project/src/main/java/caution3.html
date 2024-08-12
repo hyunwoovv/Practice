@@ -1,0 +1,243 @@
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        background-color: #F0F0E8;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    .top {
+        margin: 0px 50px;
+        color: #676767;
+        font-size: 24px;
+        font-weight: bold;
+        height: 20px;
+        display: flex;
+        align-items: center; /* 수직 가운데 정렬 */
+    }
+
+    .title img {
+        vertical-align: middle;
+        /* 이미지와 텍스트의 높낮이를 맞추기 위해 추가 */
+    }
+
+    .title span {
+        vertical-align: middle;
+        /* 이미지와 텍스트의 높낮이를 맞추기 위해 추가 */
+    }
+
+    .section {
+        height: 500px;
+        margin: 0px 50px;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    input[type="checkbox"] {
+        transform: scale(1.5);
+    }
+
+    .thead {
+        background-color: rgb(176, 176, 176);
+        height: 40px;
+        position: sticky;
+        top:0;
+    }
+
+    .tbody {
+        background-color: white;
+    }
+
+   
+    .thead th:nth-child(1) {
+        width: 5%;
+    }
+    .thead th:nth-child(2) {
+        width: 10%;
+    }
+    .thead th:nth-child(3) {
+        width: 10%;
+    }
+    .thead th:nth-child(4) {
+        width: 20%;
+    }
+    .thead th:nth-child(5) {
+        width: 20%;
+    }
+    .thead th:nth-child(6) {
+        width: 8%;
+    }
+    .thead th:nth-child(7) {
+        width: 10%;
+    }
+    .thead th:nth-child(8) {
+        width: 10%;
+    }
+    .thead th:nth-child(9) {
+        width: 10%;
+    }
+
+    .tbody td {
+        height: 80px;
+        text-align: center;
+        border-bottom: 1px solid lightgray;
+    }
+
+    .thead th {
+        border-left: 1px solid white;
+
+    }
+
+    td span {
+        padding: 5px;
+        border: 1px solid #676767;
+        background-color: #cfcfcf;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .tbody img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .regBtn{
+        background-color: #676767;
+        padding:3px 5px;
+        color:white;
+        border-radius: 5px;
+        margin-left: 400px;
+        font-size: 17px;
+        cursor: pointer;
+    }
+    .pagination {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .pagination li {
+        margin: 0 5px;
+    }
+
+    .pagination a {
+        display: block;
+        padding: 8px 16px;
+        text-decoration: none;
+        color: #007bff;
+    }
+
+    .pagination a:hover {
+        background-color: #ddd;
+        border-radius: 5px;
+    }
+
+    .pagination .active a {
+        color: white;
+        background-color: #007bff;
+        border-radius: 5px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="top">
+
+        </div>
+        <div class="section">
+            <table class="table">
+                <thead class="thead">
+                    <tr>
+                        <th></th>
+                        <th>부품코드</th>
+                        <th>부품분류</th>
+                        <th>모델</th>
+                        <th>이미지</th>
+                        <th>위치</th>
+                        <th>재고</th>
+                        <th>필요 수량</th>
+                        <th>부족 수량</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+                    <tr>
+                        <td></td>
+                        <td>A01-01</td>
+                        <td>CPU</td>
+                        <td>Intel Core i9-9900K</td>
+                        <td><img src="image/i9.png"></td>
+                        <td>창고A</td>
+                        <td>50</td>
+                        <td>100</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>A02-01</td>
+                        <td>RAM</td>
+                        <td>DDR4-3200</td>
+                        <td><img src="image/RAM.webp"></td>
+                        <td>창고A</td>
+                        <td>200</td>
+                        <td>100</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>A04-01</td>
+                        <td>SSD</td>
+                        <td>삼성 870 EVO SATA 1TB</td>
+                        <td><img src="image/ssd2.png"></td>
+                        <td>창고B</td>
+                        <td>200</td>
+                        <td>100</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>A05-01</td>
+                        <td>디스플레이</td>
+                        <td>삼성 870 EVO SATA 1TB</td>
+                        <td><img src="image/디스플레이.png"></td>
+                        <td>창고B</td>
+                        <td>200</td>
+                        <td>100</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>A07-01</td>
+                        <td>안테나</td>
+                        <td>LENOVO ThinkPad E4</td>
+                        <td><img src="image/안테나이미지.png"></td>
+                        <td>창고B</td>
+                        <td>200</td>
+                        <td>100</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul class="pagination">
+                <li><a href="#">&laquo;</a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="caution4.html">2</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+<script>
+
+</script>

@@ -1,0 +1,189 @@
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        /* border: 1px solid red; */
+        /* 스크롤 조금 생기는거 없애려고 */
+        box-sizing: border-box;
+
+    }
+
+    body {
+        /* 스크롤 조금 생기는거 없애려고 */
+        margin: 0;
+        padding: 0;
+    }
+
+    .top {
+        display: flex;
+
+        background-color: #444444;
+        height: 50px;
+    }
+
+    .body {
+        height: calc(100% - 50px);
+        background-color: #C0B296;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login_container {
+        background-color: white;
+        width: 400px;
+        height: 300px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        border-radius: 8px;
+    }
+
+    .logo_div {
+        width: 100%;
+        height: 20%;
+        margin-top: 10px;
+    }
+
+    img {
+        max-width: 100%;
+        /* 최대 너비를 컨테이너의 너비로 제한 */
+        max-height: 100%;
+        padding-left: 50px;
+        margin-left: 40px;
+    }
+
+    .id_div,
+    .pw_div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    input {
+        height: 40px;
+        font-size: 15px;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        transition: border-color 0.5s;
+        padding: 5px;
+    }
+
+    input:focus {
+        border-color: black;
+        outline: none;
+    }
+
+    .issueBtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .issueBtn span {
+        width: 200px;
+        height: 40px;
+        background-color: white;
+        border: 2px solid #f4753b;
+        color: #f4753b;
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 30px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s, color 0.3s;
+        /* 전환 효과 천천히되게 */
+        cursor: pointer;
+        /* 마우스를 올렸을 때 포인터 표시 */
+    }
+
+    .jump span {
+        width: 100px;
+        height: 40px;
+        background-color: white;
+        color: rgb(153, 148, 148);
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 50px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s, color 0.3s;
+        /* 전환 효과 천천히되게 */
+        cursor: pointer;
+        /* 마우스를 올렸을 때 포인터 표시 */
+        margin-left: 270px;
+    }
+
+    .jump span:hover {
+        /* 로그인 버튼에 마우스 올렸을 때 효과 */
+        background-color: black;
+        color: white;
+
+    }
+</style>
+<script>
+
+
+
+
+    window.onload = function () {
+        let issue = document.querySelector(".issueBtn");
+
+        issue.addEventListener("click", function () {
+            let date = prompt("입사 날짜를 입력하세요 (YYYYMMDD 형식):");
+
+            // 날짜의 첫 글자가 '2'가 아니거나 날짜의 길이가 8자가 아닌 경우
+            while (date && (date.length !== 8 || date[0] !== '2')) {
+                alert("입사 날짜는 8자 형식이어야 하며, 첫 글자는 '2'이어야 합니다. 다시 입력해주세요.");
+                date = prompt("입사 날짜를 입력하세요 (YYYYMMDD 형식):");
+            }
+
+            if (date) {
+                console.log('입사날짜:', date);
+
+                let name = prompt("이름을 입력하세요.");
+                while (name === "") {
+                    alert("이름을 입력해주세요.");
+                    name = prompt("이름을 입력하세요.");
+                }
+
+                if (name) {
+                    console.log('이름:', name);
+                    // 로컬 스토리지에서 날짜별 마지막 ID를 가져온다
+                    let lastId = localStorage.getItem(date) || "000";
+                    let newId = String(parseInt(lastId, 10) + 1).padStart(3, '0'); //입사날짜가 중복이라면 뒤에 숫자에 +1씩해서 사번 중복 방지
+                    localStorage.setItem(date, newId);
+                    let id = date + newId;
+                    alert(`가입이 완료되었습니다. ID와 비밀번호는 ${id} 입니다`);
+                }
+            } else {
+                alert("입사 날짜를 입력해주세요.");
+            }
+        });
+    }
+    function login() {
+        console.log('asd')
+        window.location.href = "login.html"
+    }
+</script>
+
+<body>
+    <div class="container">
+        <div class="top"></div>
+        <div class="body">
+            <div class="login_container">
+                <div class="logo_div"><img src="image\darkLogo.png"></div>
+                <div class="issueBtn"><span>사번 발급</span></div>
+                <div class="jump" onclick="login()"><span>건너뛰기</span></div>
+            </div>
+        </div>
+    </div>
+</body>

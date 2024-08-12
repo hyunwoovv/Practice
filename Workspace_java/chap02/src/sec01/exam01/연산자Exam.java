@@ -96,7 +96,7 @@ public class 연산자Exam {
 		System.out.println("오십원 : "+(money2%5000%1000%500%100)/50);
 		System.out.println("십원 : "+(money2%5000%1000%500%100%50)/10);
 		System.out.println("일원 : "+(money2%5000%1000%500%100%50%10)/1);
-		
+//		나머지를 이용하여 갯수 구하기
 		
 		 String left = "수박";
 		 String right = "멜론";
@@ -109,6 +109,49 @@ public class 연산자Exam {
 		System.out.println(left);
 		System.out.println(right);
 		
+		
+		
+		System.out.println(3 > 5);
+		
+		boolean bool = 3 > 5;
+		System.out.println(bool);
+		
+		System.out.println(0.1==0.1f);
+		
+		String str1 = "남현우";
+		String str2 = "남현우";
+		//System.out.println(str1==str2);
+		//글씨 비교는 == 사용금지
+		//String 변수나 "".equals()붙여서 사용 ()안 글씨와 비교
+		
+		System.out.println(str1.equals(str2));
+		
+		int i1 = 3;
+		int i2 = 15;
+		int i3 = 17;
+		
+		System.out.println("i3이 가장 큰 값인가? " +
+		( i3>=i1 && i3 >=i2 ));
+	
+		boolean i4 = i3 >i2;
+		System.out.println(i4 ? "i3이 크다":"i3이 작거나 같다");
+		
+	double var1 = 5;
+	double var2 = 2;
+	double var3 = var1 / var2;
+	int var4 = (int)(var3 * var2);
+	System.out.println(var4);
+	
+	int value = 356;
+	System.out.println(value/100*100);
+	
+	for(int i=0; i<5; i++) {
+		for(int j=i; j<5; j++){
+			System.out.print("*");
+		}
+		System.out.println();
+	}
+	
 	}
 
 }

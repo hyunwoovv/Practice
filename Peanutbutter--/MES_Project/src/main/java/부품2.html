@@ -1,0 +1,325 @@
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        background-color: #F0F0E8;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    .top {
+        margin: 0px 50px;
+        color: #676767;
+        font-size: 24px;
+        font-weight: bold;
+        height: 50px;
+        display: flex;
+        align-items: center; /* 수직 가운데 정렬 */
+    }
+
+    .title img {
+        vertical-align: middle;
+        /* 이미지와 텍스트의 높낮이를 맞추기 위해 추가 */
+    }
+
+    .title span {
+        vertical-align: middle;
+        /* 이미지와 텍스트의 높낮이를 맞추기 위해 추가 */
+    }
+
+    .section {
+        height: 500px;
+        margin: 0px 50px;
+        overflow-y: scroll;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    input[type="checkbox"] {
+        transform: scale(1.5);
+    }
+
+    .thead {
+        background-color: rgb(176, 176, 176);
+        height: 40px;
+        position: sticky;
+        top:0;
+    }
+
+    .tbody {
+        background-color: white;
+    }
+
+   
+    .thead th:nth-child(1) {
+        width: 5%;
+    }
+    .thead th:nth-child(2) {
+        width: 10%;
+    }
+    .thead th:nth-child(3) {
+        width: 10%;
+    }
+    .thead th:nth-child(4) {
+        width: 15%;
+    }
+    .thead th:nth-child(5) {
+        width: 20%;
+    }
+    .thead th:nth-child(6) {
+        width: 8%;
+    }
+    .thead th:nth-child(7) {
+        width: 12%;
+    }
+    .thead th:nth-child(8) {
+        width: 10%;
+    }
+    .thead th:nth-child(9) {
+        width: 20%;
+    }
+
+    .tbody td {
+        height: 80px;
+        text-align: center;
+        border-bottom: 1px solid lightgray;
+    }
+
+    .thead th {
+        border-left: 1px solid white;
+
+    }
+
+    td span {
+        padding: 5px;
+        border: 1px solid #676767;
+        background-color: #cfcfcf;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .tbody img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .select {
+        width: 100px;
+        height: 30px;
+        font-size: 20px;
+        margin-left: 180px;
+    }
+    .inputText {
+        height: 30px;
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    .regBtn{
+        background-color: #676767;
+        padding:3px 5px;
+        color:white;
+        border-radius: 5px;
+        margin-left: 30px;
+        font-size: 17px;
+        cursor: pointer;
+    }
+
+    .pagination {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .pagination li {
+        margin: 0 5px;
+    }
+
+    .pagination a {
+        display: block;
+        padding: 8px 16px;
+        text-decoration: none;
+        color: #007bff;
+    }
+
+    .pagination a:hover {
+        background-color: #ddd;
+        border-radius: 5px;
+    }
+
+    .pagination .active a {
+        color: white;
+        background-color: #007bff;
+        border-radius: 5px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <img src="image/directory.png" style="width: 30px;">
+            <span>부품 관리</span>
+            <select class="select">
+                <option value="-----">-----</option>
+                <option value="code">부품코드</option>
+                <option value="group">부품분류</option>
+                <option value="name">모델명</option>
+            </select>
+            <input type="text" class="inputText">
+            <img src="image/search.png" style="margin-left: 10px;" onclick="searchTable()">
+            <span class="regBtn" onclick="regStock()">등록</span>
+            <span class="regBtn" onclick="deleteSelectedRows()">삭제</span>
+        </div>
+        <div class="section">
+            <table class="table">
+                <thead class="thead">
+                    <tr>
+                        <th></th>
+                        <th>부품코드</th>
+                        <th>부품분류</th>
+                        <th>모델</th>
+                        <th>이미지</th>
+                        <th>단위</th>
+                        <th>규격</th>
+                        <th>바코드</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+
+                    <tr>
+                        <td><input type="checkbox" class="delete-checkbox"></td>
+                        <td>A03-02</td>
+                        <td>MAIN BOARD</td>
+                        <td><a href="">MSI PRO</a></td>
+                        <td><img src="image/MSI.png"></td>
+                        <td>개</td>
+                        <td>25cm * 25cm</td>
+                        <td><img src="image/barCode.png"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="delete-checkbox"></td>
+                        <td>A04-01</td>
+                        <td>SSD</td>
+                        <td><a href="">삼성 870 EVO SATA 1TB</a></td>
+                        <td><img src="image/ssd2.png"></td>
+                        <td>개</td>
+                        <td>8cm * 6cm</td>
+                        <td><img src="image/barCode.png"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="delete-checkbox"></td>
+                        <td>A05-01</td>
+                        <td>디스플레이</td>
+                        <td><a href="">G50-70 LCD 15.6인치</a></td>
+                        <td><img src="image/디스플레이.png"></td>
+                        <td>개</td>
+                        <td>20cm * 20cm</td>
+                        <td><img src="image/barCode.png"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="delete-checkbox"></td>
+                        <td>A06-01</td>
+                        <td>힌지</td>
+                        <td><a href="">LENOVO S45-5IWL</a></td>
+                        <td><img src="image/힌지이미지2.png"></td>
+                        <td>개</td>
+                        <td>3cm * 3cm</td>
+                        <td><img src="image/barCode.png"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="delete-checkbox"></td>
+                        <td>A07-01</td>
+                        <td>안테나</td>
+                        <td><a href="">LENOVO ThinkPad E4</a></td>
+                        <td><img src="image/안테나이미지.png"></td>
+                        <td>개</td>
+                        <td>3cm * 3cm</td>
+                        <td><img src="image/barCode.png"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul class="pagination">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="부품.html">1</a></li>
+                <li class="active"><a href="#">2</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
+  
+    </div>
+</body>
+
+<script>
+    function searchTable() { // 돋보기 버튼을 클릭했을 때 동작하는 함수
+        let selectValue = document.querySelector('.select').value; 
+        let searchText = document.querySelector('.inputText').value; 
+        let table = document.querySelector('.table');
+
+        
+        let rows = table.querySelectorAll('.tbody tr'); 
+        if (selectValue === 'code') {
+            rows.forEach(row => {
+                
+                let code = row.querySelector('td:nth-child(2)'); 
+                if (code) {
+                    let codeText = code.innerText;
+                    if (codeText.includes(searchText)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        } else if (selectValue === 'group') {
+            rows.forEach(row => {
+                let group = row.querySelector('td:nth-child(3)');    
+                if (group) {
+                    let nameText = group.innerText;
+                    if (nameText.includes(searchText)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        }else if (selectValue === 'name') {
+            rows.forEach(row => {
+                let name = row.querySelector('td:nth-child(4)');    
+                if (name) {
+                    let nameText = name.innerText;
+                    if (nameText.includes(searchText)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        }else if (selectValue === '-----') {
+            rows.forEach(row => {
+                row.style.display = '';
+            })
+        }
+    }
+
+    function deleteSelectedRows() { //선택된 행 삭제
+        let checkboxes = document.querySelectorAll('.delete-checkbox');
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                checkbox.closest('tr').remove(); //closest : 특정 요소의 가장 가까운 조상 요소를 찾는 데 사용되는 DOM 메서드
+            }
+        });
+    }
+
+    function regStock(){
+        window.location.href="부품Reg.html";
+    }
+</script>

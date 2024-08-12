@@ -1,0 +1,179 @@
+<style>
+    * {
+        box-sizing: border-box;
+
+    }
+    .container {
+        background-color: #F0F0E8;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .top {
+        color: #676767;
+        font-size: 24px;
+        font-weight: bold;
+        height: 12vh;
+    }
+
+    .title {
+        padding-top: 30px;
+        margin-left: 100px;
+    }
+
+    .title img {
+        vertical-align: middle;
+        /* 이미지와 텍스트의 높낮이를 맞추기 위해 추가 */
+    }
+
+    .title span {
+        vertical-align: middle;
+        /* 이미지와 텍스트의 높낮이를 맞추기 위해 추가 */
+    }
+
+    .search_container {
+        margin: 0 20px;
+        height: 81vh;
+        background-color: #E9E4DC;
+        overflow: auto;
+    }
+    .btn:active {
+        transform: scale(0.95);
+    }
+    .btn2:active{
+        transform: scale(0.95);
+    }
+    .btn {
+        background-color: #A2A2A2; 
+        color: #FFFFFF;
+    }
+    .btn2 {
+        margin: 10px 10px 0 0;
+        padding: 10px;
+        background-color: #A2A2A2; 
+        color: #FFFFFF;
+    }
+    .searchcon {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin: 20px 0 0 40px;
+    }
+    .search-box {
+        position: relative;
+        width: 300px;
+        margin-right: 20px;
+    }
+    .search-box input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        padding-right: 40px; /* Make space for the button */
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+    .search-box button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 95px;
+        background-color: #D3CEC9;
+        color: black;
+        border: none;
+        cursor: pointer;
+    }
+    .search-box button:active {
+        transform: scale(0.95);
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="top">
+            <div class="title">
+                <img src="image/directory.png" style="width: 30px;">
+                <span>재고 등록</span>
+            </div>
+        </div>
+        <div class="search_container">
+            <div style="float: right;">
+                <button class="btn2">등록</button>
+                <button class="btn2">삭제</button>
+            </div>
+            <div class="searchcon">
+                <div style="padding-right:15px;">품목코드(*)</div>
+                <div class="search-box">
+                    <input type="text">
+                    <button>중복여부</button>
+                </div>
+                <div style="padding-right:15px;" >품목명(*)</div>
+                <div class="search-box">
+                    <input type="text">
+                </div>
+            </div>
+            <div class="searchcon">
+                <div style="padding-right:62px;">규격</div>
+                <div class="search-box">
+                    <input type="text">
+                    <button>검색</button>
+                </div>
+                <div style="padding-right:50px;">단위</div>
+                <div class="search-box">
+                    <input type="text">
+                </div>
+            </div>
+            <div class="searchcon">
+                <div style="padding-right:28px;">비고사항</div>
+                <input style="width: 705px; height: 150px;" type="text">
+            </div>
+            <div class="searchcon">
+                <div style="padding-right:26px;">이미지</div>
+                <input type="file">
+                <!-- <div class="search-box">
+                    <input type="text">
+                </div> -->
+                <div style="padding-right:18px;">재고 수량</div>
+                <div class="search-box">
+                    <input type="text">
+                </div>
+            </div>
+            <div class="searchcon">
+                <div style="padding-right:58px;">모델명</div>
+                <div class="search-box">
+                    <input type="text">
+                </div>
+                <div style="padding-right:20px;">생산 계획 여부</div>
+                <input  style="zoom: 1.5;" type="checkbox">
+            </div>
+  
+            <!-- <div class="searchcon">
+                <div style="padding-right:10px;">품목코드(*)</div>
+                <div class="search-box">
+                    <input type="text" style="width: 690px;">
+                    <button style="position: absolute;
+                    left: 200%;
+                    top: 0;
+                    height: 100%;
+                    width: 95px;
+                    background-color: #D3CEC9;
+                    color: black;
+                    border: none;
+                    cursor: pointer;">중복여부</button>
+                </div>
+            </div> -->
+            
+        </div>
+    </div>
+</body>
+<script>
+    function test(){
+        console.log("버튼클릭시 필요함수");
+    }
+</script>
+
+
